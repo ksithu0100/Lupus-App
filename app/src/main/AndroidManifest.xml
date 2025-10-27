@@ -22,6 +22,8 @@
         </activity>
         <activity
             android:name =".loading_page"/>
+        <activity
+            android:name=".login_page"/>
     </application>
 
 </manifest>
