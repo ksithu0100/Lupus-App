@@ -1,11 +1,14 @@
 package com.example.lupusapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import java.nio.channels.InterruptedByTimeoutException;
 
 public class loading_page extends Activity {
 
@@ -24,8 +27,10 @@ public class loading_page extends Activity {
 
         View.OnClickListener sharedClickListener = new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Toast.makeText(loading_page.this, "You have clicked the button", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(loading_page.this, notifications_page.class);
+                startActivity(intent);
             }
         };
 
