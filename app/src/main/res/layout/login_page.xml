@@ -14,7 +14,7 @@
     <!-- Empty space to set the rest of the login page down -->
     <Space
         android:layout_width="100dp"
-        android:layout_height="150dp" />
+        android:layout_height="93dp" />
 
     <!-- Temporary icon for rn, prob one of those stock people image things later down the line -->
     <ImageView
