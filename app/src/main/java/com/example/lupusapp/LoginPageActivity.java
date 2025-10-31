@@ -2,7 +2,6 @@ package com.example.lupusapp;
 
 import static android.app.ProgressDialog.show;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class login_page extends MainActivity {
+public class LoginPageActivity extends MainActivity {
 
     EditText username;
     EditText password;
@@ -30,11 +29,11 @@ public class login_page extends MainActivity {
             @Override
             public void onClick(View view) {
                 if (username.getText().toString().equals("user") && password.getText().toString().equals("1234")) {
-                    Toast.makeText(login_page.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                    Intent intent  = new Intent(login_page.this, loading_page.class);
+                    Toast.makeText(LoginPageActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                    Intent intent  = new Intent(LoginPageActivity.this, HomePageActivity.class);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(login_page.this, "Login Failed!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginPageActivity.this, "Login Failed!", Toast.LENGTH_SHORT).show();
                 }
 
             }
