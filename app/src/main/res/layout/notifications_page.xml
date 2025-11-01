@@ -9,7 +9,7 @@
         android:id="@+id/switchNotifications"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enable daily notifications" />
+        android:text="Enable notifications" />
 
     <Button
         android:id="@+id/btnPickTime"

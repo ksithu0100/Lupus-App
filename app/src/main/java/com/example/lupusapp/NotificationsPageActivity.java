@@ -26,16 +26,18 @@ import java.util.Calendar;
 
 public class NotificationsPageActivity extends Activity {
 
+    private static final String CHANNEL_ID = "lupus_notifications";
+
     private Switch switchNotifications;
     private Button btnPickTime, btnTestNotification;
     private SharedPreferences prefs;
-    private static final String CHANNEL_ID = "lupus_notifications";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.notifications_page);
 
+        // Initialize UI components
         switchNotifications = findViewById(R.id.switchNotifications);
         btnPickTime = findViewById(R.id.btnPickTime);
         btnTestNotification = findViewById(R.id.btnTestNotification);
@@ -52,6 +54,7 @@ public class NotificationsPageActivity extends Activity {
 
         createNotificationChannel();
 
+        // Notification switch
         switchNotifications.setOnCheckedChangeListener((buttonView, isChecked) -> {
             prefs.edit().putBoolean("notifications_enabled", isChecked).apply();
             btnPickTime.setEnabled(isChecked);
@@ -65,6 +68,7 @@ public class NotificationsPageActivity extends Activity {
             }
         });
 
+        // Time picker button
         btnPickTime.setOnClickListener(v -> {
             TimePickerDialog picker = new TimePickerDialog(
                     this,
@@ -78,7 +82,8 @@ public class NotificationsPageActivity extends Activity {
                         if (notificationsEnabled) {
                             scheduleDailyNotification(selectedHour, selectedMinute);
                             Toast.makeText(this,
-                                    "Reminder set for " + selectedHour + ":" + String.format("%02d", selectedMinute),
+                                    "Reminder set for " + selectedHour + ":" +
+                                            String.format("%02d", selectedMinute),
                                     Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(this,
@@ -90,6 +95,7 @@ public class NotificationsPageActivity extends Activity {
             picker.show();
         });
 
+        // Test notification button
         btnTestNotification.setOnClickListener(v -> {
             boolean notificationsEnabled = prefs.getBoolean("notifications_enabled", false);
             if (!notificationsEnabled) {
@@ -99,13 +105,13 @@ public class NotificationsPageActivity extends Activity {
             showTestNotification();
         });
 
+        // Auto-reschedule if enabled
         if (enabled) {
             scheduleDailyNotification(hour, minute);
         }
     }
 
-
-
+    // Create Notification Channel
     private void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(
@@ -122,13 +128,26 @@ public class NotificationsPageActivity extends Activity {
         }
     }
 
-
+    // Show test notification (clickable)
     private void showTestNotification() {
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS)
                 != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.POST_NOTIFICATIONS}, 1);
+            ActivityCompat.requestPermissions(
+                    this,
+                    new String[]{android.Manifest.permission.POST_NOTIFICATIONS},
+                    1
+            );
             return;
         }
+
+        // Open LoginPageActivity when tapped
+        Intent openIntent = new Intent(this, LoginPageActivity.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(
+                this,
+                0,
+                openIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
+        );
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(android.R.drawable.ic_dialog_info)
@@ -136,13 +155,14 @@ public class NotificationsPageActivity extends Activity {
                 .setContentText("This is a test notification.")
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setDefaults(NotificationCompat.DEFAULT_ALL)
-                .setAutoCancel(true);
+                .setAutoCancel(true)
+                .setContentIntent(contentIntent);
 
         int notificationId = (int) System.currentTimeMillis();
         NotificationManagerCompat.from(this).notify(notificationId, builder.build());
     }
 
-
+    // Handle notification permission result
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -154,6 +174,7 @@ public class NotificationsPageActivity extends Activity {
         }
     }
 
+    // Schedule a daily notification
     private void scheduleDailyNotification(int hour, int minute) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
@@ -194,12 +215,11 @@ public class NotificationsPageActivity extends Activity {
             Log.d("ALARM", "Using setExact()");
         }
 
-        Toast.makeText(this, "Reminder scheduled for " + String.format("%02d:%02d", hour, minute),
-                Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Reminder scheduled for " +
+                String.format("%02d:%02d", hour, minute), Toast.LENGTH_SHORT).show();
     }
 
-
-
+    // Cancel existing scheduled notification (called if notis r off)
     private void cancelNotification() {
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(this, NotificationReceiver.class);
