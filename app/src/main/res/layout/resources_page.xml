@@ -120,56 +120,67 @@
 
 
     <!-- COPY PASTABLE BOTTOM NAV BUTTONS (probably need to dim active one tho) -->
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/navBar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".HomePageActivity">
+        android:layout_height="65dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="#EEEEEE">
 
         <ImageButton
             android:id="@+id/imgHomeBtn"
-            android:layout_width="82dp"
-            android:layout_height="65dp"
-            android:scaleType="fitXY"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="0dp"
+            android:scaleType="centerInside"
             android:src="@drawable/home"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/imgCalendarBtn"
+            app:layout_constraintHorizontal_weight="1" />
 
         <ImageButton
             android:id="@+id/imgCalendarBtn"
-            android:layout_width="82dp"
-            android:layout_height="65dp"
-            android:scaleType="fitXY"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
             android:src="@drawable/calendar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/imgHomeBtn" />
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toEndOf="@id/imgHomeBtn"
+            app:layout_constraintEnd_toStartOf="@id/imgAddBtn"
+            app:layout_constraintHorizontal_weight="1" />
 
         <ImageButton
             android:id="@+id/imgAddBtn"
-            android:layout_width="83dp"
-            android:layout_height="65dp"
-            android:scaleType="fitXY"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
             android:src="@drawable/plus"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/imgCalendarBtn" />
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toEndOf="@id/imgCalendarBtn"
+            app:layout_constraintEnd_toStartOf="@id/imgJournalBtn"
+            app:layout_constraintHorizontal_weight="1" />
 
         <ImageButton
             android:id="@+id/imgJournalBtn"
-            android:layout_width="82dp"
-            android:layout_height="65dp"
-            android:scaleType="fitXY"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
             android:src="@drawable/journal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/imgAddBtn" />
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toEndOf="@id/imgAddBtn"
+            app:layout_constraintEnd_toStartOf="@id/imgProfileBtn"
+            app:layout_constraintHorizontal_weight="1" />
 
         <ImageButton
             android:id="@+id/imgProfileBtn"
-            android:layout_width="82dp"
-            android:layout_height="65dp"
-            android:scaleType="fitXY"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
             android:src="@drawable/profile"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/imgJournalBtn" />
-
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toEndOf="@id/imgJournalBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
