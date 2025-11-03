@@ -42,8 +42,8 @@ public class NotificationsPageActivity extends Activity {
         btnPickTime = findViewById(R.id.btnPickTime);
         btnTestNotification = findViewById(R.id.btnTestNotification);
 
+        //Storage for user defined notification daily time
         prefs = getSharedPreferences("lupus_prefs", MODE_PRIVATE);
-
         boolean enabled = prefs.getBoolean("notifications_enabled", false);
         int hour = prefs.getInt("notify_hour", 9);
         int minute = prefs.getInt("notify_minute", 0);
@@ -54,7 +54,7 @@ public class NotificationsPageActivity extends Activity {
 
         createNotificationChannel();
 
-        // Notification switch
+        // Enable notifications switch
         switchNotifications.setOnCheckedChangeListener((buttonView, isChecked) -> {
             prefs.edit().putBoolean("notifications_enabled", isChecked).apply();
             btnPickTime.setEnabled(isChecked);
@@ -73,22 +73,13 @@ public class NotificationsPageActivity extends Activity {
             TimePickerDialog picker = new TimePickerDialog(
                     this,
                     (TimePicker view, int selectedHour, int selectedMinute) -> {
-                        prefs.edit()
-                                .putInt("notify_hour", selectedHour)
-                                .putInt("notify_minute", selectedMinute)
-                                .apply();
-
+                        prefs.edit().putInt("notify_hour", selectedHour).putInt("notify_minute", selectedMinute).apply();
                         boolean notificationsEnabled = prefs.getBoolean("notifications_enabled", false);
                         if (notificationsEnabled) {
                             scheduleDailyNotification(selectedHour, selectedMinute);
-                            Toast.makeText(this,
-                                    "Reminder set for " + selectedHour + ":" +
-                                            String.format("%02d", selectedMinute),
-                                    Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, "Reminder set for " + selectedHour + ":" + String.format("%02d", selectedMinute), Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(this,
-                                    "Notifications are off. Turn them on to activate reminders.",
-                                    Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, "Notifications are off. Turn them on to activate reminders.", Toast.LENGTH_SHORT).show();
                         }
                     },
                     hour, minute, true);
@@ -114,15 +105,10 @@ public class NotificationsPageActivity extends Activity {
     // Create Notification Channel
     private void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel channel = new NotificationChannel(
-                    CHANNEL_ID,
-                    getString(R.string.channel_name),
-                    NotificationManager.IMPORTANCE_HIGH
-            );
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, getString(R.string.channel_name), NotificationManager.IMPORTANCE_HIGH);
             channel.setDescription("Daily lupus reminders and test notifications");
             channel.enableVibration(true);
             channel.enableLights(true);
-
             NotificationManager manager = getSystemService(NotificationManager.class);
             manager.createNotificationChannel(channel);
         }
@@ -130,24 +116,14 @@ public class NotificationsPageActivity extends Activity {
 
     // Show test notification (clickable)
     private void showTestNotification() {
-        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS)
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(
-                    this,
-                    new String[]{android.Manifest.permission.POST_NOTIFICATIONS},
-                    1
-            );
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.POST_NOTIFICATIONS}, 1);
             return;
         }
 
         // Open LoginPageActivity when tapped
         Intent openIntent = new Intent(this, LoginPageActivity.class);
-        PendingIntent contentIntent = PendingIntent.getActivity(
-                this,
-                0,
-                openIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
-        );
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, openIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(android.R.drawable.ic_dialog_info)
@@ -162,15 +138,14 @@ public class NotificationsPageActivity extends Activity {
         NotificationManagerCompat.from(this).notify(notificationId, builder.build());
     }
 
-    // Handle notification permission result
+    // Handle notification permission request
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == 1 && grantResults.length > 0
-                && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+        if (requestCode == 1 && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             showTestNotification();
         } else {
-            Toast.makeText(this, "Permission denied. Cannot show notification.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Permission denied. L.", Toast.LENGTH_SHORT).show();
         }
     }
 
