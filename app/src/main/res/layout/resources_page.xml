@@ -31,7 +31,6 @@
             android:id="@+id/friendlyCharacterImage"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/ic_placeholder"
             android:contentDescription="@string/friendly_character"
             android:layout_marginBottom="8dp" />
 
@@ -183,4 +182,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_weight="1" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
