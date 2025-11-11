@@ -14,7 +14,7 @@ public class HomePageActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.loading_page);
+        setContentView(R.layout.home_page);
 
         imgHomeBtn = findViewById(R.id.imgHomeBtn);
         imgCalendarBtn = findViewById(R.id.imgCalendarBtn);

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:id="@+id/headerSection"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="24dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/greetingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hi_name"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"
+            android:paddingBottom="4dp" />
+
+        <ImageView
+            android:id="@+id/friendlyCharacterImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="@string/friendly_character"
+            android:layout_marginBottom="8dp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/getCareButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/get_care"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintTop_toBottomOf="@id/headerSection"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
+
+    <!-- Resource Group 1 -->
+    <TextView
+        android:id="@+id/group1Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/resource_group_1"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/getCareButton"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="24dp" />
+
+    <GridLayout
+        android:id="@+id/resourceGroup1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="2"
+        android:alignmentMode="alignMargins"
+        android:paddingHorizontal="24dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintTop_toBottomOf="@id/group1Title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_margin="8dp"
+            android:layout_columnWeight="1"
+            android:background="@drawable/card_background" />
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_margin="8dp"
+            android:layout_columnWeight="1"
+            android:background="@drawable/card_background" />
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_margin="8dp"
+            android:layout_columnWeight="1"
+            android:background="@drawable/card_background" />
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_margin="8dp"
+            android:layout_columnWeight="1"
+            android:background="@drawable/card_background" />
+    </GridLayout>
+
+    <!-- Resource Group 2 -->
+    <TextView
+        android:id="@+id/group2Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/resource_group_2"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/resourceGroup1"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="24dp" />
+
+
+
+    <!-- COPY PASTABLE BOTTOM NAV BUTTONS (probably need to dim active one tho) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/navBar"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="#EEEEEE">
+
+        <ImageButton
+            android:id="@+id/imgHomeBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="0dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/home"
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/imgCalendarBtn"
+            app:layout_constraintHorizontal_weight="1" />
+
+        <ImageButton
+            android:id="@+id/imgCalendarBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/calendar"
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toEndOf="@id/imgHomeBtn"
+            app:layout_constraintEnd_toStartOf="@id/imgAddBtn"
+            app:layout_constraintHorizontal_weight="1" />
+
+        <ImageButton
+            android:id="@+id/imgAddBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/plus"
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toEndOf="@id/imgCalendarBtn"
+            app:layout_constraintEnd_toStartOf="@id/imgJournalBtn"
+            app:layout_constraintHorizontal_weight="1" />
+
+        <ImageButton
+            android:id="@+id/imgJournalBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/journal"
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toEndOf="@id/imgAddBtn"
+            app:layout_constraintEnd_toStartOf="@id/imgProfileBtn"
+            app:layout_constraintHorizontal_weight="1" />
+
+        <ImageButton
+            android:id="@+id/imgProfileBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/profile"
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toEndOf="@id/imgJournalBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

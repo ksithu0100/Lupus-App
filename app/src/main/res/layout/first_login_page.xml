@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="@android:color/white"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/on_first_login"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:paddingBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/what_are_you_focused_on_achieving_with_this_app"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/we_ll_use_this_info_to_personalize_your_experience_don_t_worry_we_ll_keep_it_private"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:paddingBottom="16dp" />
+
+        <CheckBox
+            android:id="@+id/checkbox_track_symptoms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/track_my_symptoms"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:checked="true"
+            android:layout_marginBottom="8dp" />
+
+        <CheckBox
+            android:id="@+id/checkbox_connect_doctors"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/connect_with_doctors"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <CheckBox
+            android:id="@+id/checkbox_learn_lupus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/learn_more_about_lupus"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <CheckBox
+            android:id="@+id/checkbox_other"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/other"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/what_symptoms_would_you_like_to_track"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:paddingBottom="12dp" />
+
+        <CheckBox
+            android:id="@+id/symptom1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/symptom_1"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <CheckBox
+            android:id="@+id/symptom2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/symptom_2"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <CheckBox
+            android:id="@+id/symptom3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/symptom_3"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <CheckBox
+            android:id="@+id/symptom4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/symptom_4"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp" />
+
+    </LinearLayout>
+</ScrollView>

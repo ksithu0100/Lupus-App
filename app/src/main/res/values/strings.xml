@@ -1,4 +1,21 @@
 <resources>
     <string name="app_name">Lupus App</string>
     <string name="channel_name">General Notifications</string>
+    <string name="track_my_symptoms">Track my symptoms</string>
+    <string name="we_ll_use_this_info_to_personalize_your_experience_don_t_worry_we_ll_keep_it_private">We’ll use this info to personalize your experience (Don’t worry, we’ll keep it private).</string>
+    <string name="what_are_you_focused_on_achieving_with_this_app">What are you focused on achieving with this app?</string>
+    <string name="on_first_login">On First Login</string>
+    <string name="connect_with_doctors">Connect with doctors</string>
+    <string name="learn_more_about_lupus">Learn more about lupus</string>
+    <string name="other">Other</string>
+    <string name="what_symptoms_would_you_like_to_track">What symptoms would you like to track?</string>
+    <string name="symptom_1">Symptom 1</string>
+    <string name="symptom_2">Symptom 2</string>
+    <string name="symptom_3">Symptom 3</string>
+    <string name="symptom_4">Symptom 4</string>
+    <string name="friendly_character">Friendly character</string>
+    <string name="hi_name">Hi, [Name]!</string>
+    <string name="get_care">Get Care</string>
+    <string name="resource_group_1">Resource Group 1</string>
+    <string name="resource_group_2">Resource Group 2</string>
 </resources>
