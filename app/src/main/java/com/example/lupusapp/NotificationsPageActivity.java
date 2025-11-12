@@ -35,7 +35,7 @@ public class NotificationsPageActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.notifications_page);
+        setContentView(R.layout.activity_notifications_test);
 
         // Initialize UI components
         switchNotifications = findViewById(R.id.switchNotifications);

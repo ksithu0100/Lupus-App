@@ -19,7 +19,7 @@ public class LoginPageActivity extends MainActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_page);
+        setContentView(R.layout.activity_login);
 
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
