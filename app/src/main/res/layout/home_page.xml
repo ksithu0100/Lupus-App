@@ -3,52 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".HomePageActivity">
+    android:layout_height="match_parent">
 
-    <ImageButton
-        android:id="@+id/imgHomeBtn"
-        android:layout_width="82dp"
-        android:layout_height="65dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/home"
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageButton
-        android:id="@+id/imgCalendarBtn"
-        android:layout_width="82dp"
-        android:layout_height="65dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/calendar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/imgHomeBtn" />
-
-    <ImageButton
-        android:id="@+id/imgAddBtn"
-        android:layout_width="83dp"
-        android:layout_height="65dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/plus"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/imgCalendarBtn" />
-
-    <ImageButton
-        android:id="@+id/imgJournalBtn"
-        android:layout_width="82dp"
-        android:layout_height="65dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/journal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/imgAddBtn" />
-
-    <ImageButton
-        android:id="@+id/imgProfileBtn"
-        android:layout_width="82dp"
-        android:layout_height="65dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/profile"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/imgJournalBtn" />
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
