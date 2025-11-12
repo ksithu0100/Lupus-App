@@ -1,20 +1,18 @@
 package com.example.lupusapp;
 
-import static android.app.ProgressDialog.show;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class LoginPageActivity extends MainActivity {
+public class LoginActivity extends AppCompatActivity {
 
     EditText username;
     EditText password;
     Button loginButton;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,14 +26,16 @@ public class LoginPageActivity extends MainActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (username.getText().toString().equals("user") && password.getText().toString().equals("1234")) {
-                    Toast.makeText(LoginPageActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                    Intent intent  = new Intent(LoginPageActivity.this, HomePageActivity.class);
-                    startActivity(intent);
-                } else {
-                    Toast.makeText(LoginPageActivity.this, "Login Failed!", Toast.LENGTH_SHORT).show();
-                }
+                if (username.getText().toString().equals("user") &&
+                        password.getText().toString().equals("1234")) {
 
+                    Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                    startActivity(intent);
+
+                } else {
+                    Toast.makeText(LoginActivity.this, "Login Failed!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

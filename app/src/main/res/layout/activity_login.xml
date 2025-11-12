@@ -9,7 +9,7 @@
     android:gravity="center_horizontal"
     android:padding="24dp"
     android:background="@android:color/white"
-    tools:context=".MainActivity">
+    tools:context=".LoginActivity">
 
     <!-- Empty space to set the rest of the login page down -->
     <Space
@@ -22,7 +22,6 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="16dp"
-        android:src="@drawable/notiicon"
         android:contentDescription="Notification Icon" />
 
     <TextView

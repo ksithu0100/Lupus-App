@@ -25,7 +25,7 @@ public class NotificationReceiver extends BroadcastReceiver {
         Log.d("ALARM", "NotificationReceiver triggered!");
 
         // Build PendingIntent for LoginPage (gives notifications ability to be clicked n stuff)
-        Intent openIntent = new Intent(context, LoginPageActivity.class);
+        Intent openIntent = new Intent(context, LoginActivity.class);
         openIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
         PendingIntent contentIntent = PendingIntent.getActivity(

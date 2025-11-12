@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-public class HomePageActivity extends Activity {
+public class HomeActivity extends Activity {
 
     private ImageButton imgHomeBtn, imgCalendarBtn, imgAddBtn, imgJournalBtn, imgProfileBtn;
 
@@ -24,7 +24,7 @@ public class HomePageActivity extends Activity {
 
         View.OnClickListener sharedClickListener = view -> {
             Toast.makeText(this, "You clicked a button", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(this, NotificationsPageActivity.class));
+            startActivity(new Intent(this, NotificationsTestActivity.class));
         };
 
 //        imgHomeBtn.setOnClickListener(sharedClickListener);

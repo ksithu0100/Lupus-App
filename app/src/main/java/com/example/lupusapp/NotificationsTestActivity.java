@@ -24,7 +24,7 @@ import androidx.core.app.NotificationManagerCompat;
 
 import java.util.Calendar;
 
-public class NotificationsPageActivity extends Activity {
+public class NotificationsTestActivity extends Activity {
 
     private static final String CHANNEL_ID = "lupus_notifications";
 
@@ -122,7 +122,7 @@ public class NotificationsPageActivity extends Activity {
         }
 
         // Open LoginPageActivity when tapped
-        Intent openIntent = new Intent(this, LoginPageActivity.class);
+        Intent openIntent = new Intent(this, LoginActivity.class);
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0, openIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)

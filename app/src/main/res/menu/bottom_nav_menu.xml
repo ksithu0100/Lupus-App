@@ -3,18 +3,18 @@
 
     <item
         android:id="@+id/home"
-        android:icon="@drawable/baseline_home"
+        android:icon="@drawable/nav_home"
         android:title="Home" />
     <item
         android:id="@+id/calender"
-        android:icon="@drawable/baseline_calender"
+        android:icon="@drawable/nav_calender"
         android:title="Calender" />
     <item
         android:id="@+id/log"
-        android:icon="@drawable/baseline_log"
+        android:icon="@drawable/nav_log"
         android:title="Log" />
     <item
         android:id="@+id/settings"
-        android:icon="@drawable/baseline_settings"
+        android:icon="@drawable/nav_settings"
         android:title="Settings" />
 </menu>
