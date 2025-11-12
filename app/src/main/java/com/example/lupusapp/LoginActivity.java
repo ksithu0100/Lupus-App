@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
                         password.getText().toString().equals("1234")) {
 
                     Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
 
                 } else {
