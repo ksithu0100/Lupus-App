@@ -13,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
     Button button1;
+    // ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
