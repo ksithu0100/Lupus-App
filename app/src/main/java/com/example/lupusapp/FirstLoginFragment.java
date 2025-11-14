@@ -7,7 +7,7 @@ import android.widget.CheckBox;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class FirstLoginActivity extends AppCompatActivity {
+public class FirstLoginFragment extends AppCompatActivity {
 
     CheckBox trackSymptoms, connectDoctors, learnLupus, other;
     CheckBox symptom1, symptom2, symptom3, symptom4;
@@ -42,7 +42,7 @@ public class FirstLoginActivity extends AppCompatActivity {
     }
 
     private void goToMain() {
-        Intent intent = new Intent(FirstLoginActivity.this, MainActivity.class);
+        Intent intent = new Intent(FirstLoginFragment.this, MainActivity.class);
         startActivity(intent);
         finish();
     }

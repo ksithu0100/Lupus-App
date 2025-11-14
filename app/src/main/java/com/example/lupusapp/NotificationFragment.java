@@ -24,7 +24,7 @@ import androidx.core.app.NotificationManagerCompat;
 
 import java.util.Calendar;
 
-public class NotificationsTestActivity extends Activity {
+public class NotificationFragment extends Activity {
 
     private static final String CHANNEL_ID = "lupus_notifications";
 

@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         registerButton.setOnClickListener(v -> {
-            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+            Intent intent = new Intent(LoginActivity.this, RegisterFragment.class);
             startActivity(intent);
         });
 
@@ -74,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void goToFirstLogin() {
-        Intent intent = new Intent(LoginActivity.this, FirstLoginActivity.class);
+        Intent intent = new Intent(LoginActivity.this, FirstLoginFragment.class);
         startActivity(intent);
         finish();
     }
