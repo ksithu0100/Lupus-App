@@ -2,7 +2,6 @@ package com.example.lupusapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -35,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
 
         FirebaseUser currentUser = auth.getCurrentUser();
         if (currentUser != null) {
-            goToMain();
+            handleLoginRedirect();
         }
 
         registerButton.setOnClickListener(v -> {
@@ -43,28 +42,41 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String email = username.getText().toString().trim();
-                String pass = password.getText().toString().trim();
+        loginButton.setOnClickListener(view -> {
+            String email = username.getText().toString().trim();
+            String pass = password.getText().toString().trim();
 
-                if (email.isEmpty() || pass.isEmpty()) {
-                    Toast.makeText(LoginActivity.this, "Enter both fields", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                auth.signInWithEmailAndPassword(email, pass)
-                        .addOnSuccessListener(authResult -> {
-                            Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                            goToMain();
-                        })
-                        .addOnFailureListener(e ->
-                                Toast.makeText(LoginActivity.this, "Login Failed: " + e.getMessage(), Toast.LENGTH_SHORT).show()
-                        );
+            if (email.isEmpty() || pass.isEmpty()) {
+                Toast.makeText(LoginActivity.this, "Enter both fields", Toast.LENGTH_SHORT).show();
+                return;
             }
-        });
 
+            auth.signInWithEmailAndPassword(email, pass)
+                    .addOnSuccessListener(authResult -> {
+                        Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                        handleLoginRedirect();
+                    })
+                    .addOnFailureListener(e ->
+                            Toast.makeText(LoginActivity.this, "Login Failed: " + e.getMessage(), Toast.LENGTH_SHORT).show()
+                    );
+        });
+    }
+
+    private void handleLoginRedirect() {
+        boolean done = getSharedPreferences("prefs", MODE_PRIVATE)
+                .getBoolean("onboardingComplete", false);
+
+        if (done) {
+            goToMain();
+        } else {
+            goToFirstLogin();
+        }
+    }
+
+    private void goToFirstLogin() {
+        Intent intent = new Intent(LoginActivity.this, FirstLoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     private void goToMain() {
