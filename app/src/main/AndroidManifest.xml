@@ -26,6 +26,7 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".NotificationsTestActivity" />
+        <activity android:name=".RegisterActivity" />
 
         <receiver
             android:name=".NotificationReceiver"

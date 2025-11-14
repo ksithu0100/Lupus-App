@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,26 +8,24 @@
     android:gravity="center_horizontal"
     android:padding="24dp"
     android:background="@android:color/white"
-    tools:context=".LoginActivity">
+    tools:context=".RegisterActivity">
 
-    <!-- Empty space to set the rest of the login page down -->
     <Space
         android:layout_width="100dp"
-        android:layout_height="93dp" />
+        android:layout_height="80dp" />
 
-    <!-- Temporary icon for rn, prob one of those stock people image things later down the line -->
     <ImageView
-        android:id="@+id/notiIcon"
+        android:id="@+id/registerIcon"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="16dp"
-        android:contentDescription="Notification Icon" />
+        android:contentDescription="Register Icon" />
 
     <TextView
-        android:id="@+id/welcomeText"
+        android:id="@+id/createAccountText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome Back"
+        android:text="Create Account"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@android:color/black"
@@ -37,24 +34,22 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login to your account"
+        android:text="Sign up to get started"
         android:textSize="14sp"
         android:textColor="#666"
         android:layout_marginTop="4dp"/>
 
-    <!-- Username/Email field -->
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/custom_edittext"
-        android:hint="Username"
+        android:hint="Email"
         android:padding="10dp"
-        android:inputType="text"
+        android:inputType="textEmailAddress"
         android:textColor="@android:color/black"/>
 
-    <!-- Password field -->
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
@@ -66,55 +61,34 @@
         android:inputType="textPassword"
         android:textColor="@android:color/black"/>
 
-    <!-- Login button -->
+    <EditText
+        android:id="@+id/confirmPassword"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/custom_edittext"
+        android:hint="Confirm Password"
+        android:padding="10dp"
+        android:inputType="textPassword"
+        android:textColor="@android:color/black"/>
+
     <Button
-        android:id="@+id/loginButton"
+        android:id="@+id/registerButton"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="24dp"
-        android:text="Login"
+        android:text="Register"
         android:textSize="16sp"
         android:backgroundTint="#7A42F4"
         android:textColor="@android:color/white"/>
 
-    <!-- Sign Up -->
     <TextView
-        android:id="@+id/registerButton"
+        android:id="@+id/alreadyHaveAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="Register Here!"
+        android:text="Already have an account? Login"
         android:textSize="14sp"
         android:textColor="#666"/>
-
-    <!-- Or sign in with -->
-<!--    <TextView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="24dp"-->
-<!--        android:text="Or sign in with"-->
-<!--        android:textSize="14sp"-->
-<!--        android:textColor="#666"/>-->
-
-    <!-- Space I'm reserving for sign in with icons -->
-<!--    <LinearLayout-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="horizontal"-->
-<!--        android:gravity="center"-->
-<!--        android:layout_marginTop="16dp">-->
-
-<!--        <Space-->
-<!--            android:layout_width="40dp"-->
-<!--            android:layout_height="40dp"/>-->
-<!--        <Space-->
-<!--            android:layout_width="40dp"-->
-<!--            android:layout_height="40dp"-->
-<!--            android:layout_marginStart="16dp"/>-->
-<!--        <Space-->
-<!--            android:layout_width="40dp"-->
-<!--            android:layout_height="40dp"-->
-<!--            android:layout_marginStart="16dp"/>-->
-<!--    </LinearLayout>-->
 
 </LinearLayout>
