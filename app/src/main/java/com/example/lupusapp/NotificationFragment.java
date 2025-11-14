@@ -35,7 +35,7 @@ public class NotificationFragment extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notifications_test);
+        setContentView(R.layout.fragment_notifications_test);
 
         // Initialize UI components
         switchNotifications = findViewById(R.id.switchNotifications);

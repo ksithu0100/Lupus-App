@@ -20,4 +20,7 @@
     <string name="resource_group_2">Resource Group 2</string>
     <string name="Submit">Submit</string>
     <string name="first_login">First Login</string>
+    <string name="symptom_5" />
+    <string name="symptom_6" />
+    <string name="symptom_7" />
 </resources>

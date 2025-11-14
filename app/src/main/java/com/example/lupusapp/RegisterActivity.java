@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class RegisterFragment extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
 
     EditText emailField, passwordField;
     Button registerButton;
@@ -34,7 +34,7 @@ public class RegisterFragment extends AppCompatActivity {
             auth.createUserWithEmailAndPassword(email, password)
                     .addOnSuccessListener(result -> {
                         Toast.makeText(this, "Account created!", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(RegisterFragment.this, LoginActivity.class);
+                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                         startActivity(intent);
                     })
 
