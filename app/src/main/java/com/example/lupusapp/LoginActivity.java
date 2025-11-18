@@ -37,13 +37,11 @@ public class LoginActivity extends AppCompatActivity {
             handleLoginRedirect();
         }
 
-        //Sends users to register activity
         registerButton.setOnClickListener(v -> {
             Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
             startActivity(intent);
         });
 
-        //Sign in logic with Firebase (Working!!!!)
         loginButton.setOnClickListener(view -> {
             String email = username.getText().toString().trim();
             String pass = password.getText().toString().trim();
@@ -53,7 +51,8 @@ public class LoginActivity extends AppCompatActivity {
                 return;
             }
 
-            auth.signInWithEmailAndPassword(email, pass).addOnSuccessListener(authResult -> {
+            auth.signInWithEmailAndPassword(email, pass)
+                    .addOnSuccessListener(authResult -> {
                         Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                         handleLoginRedirect();
                     })
@@ -63,25 +62,23 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    //Supposed to check if user has already completed first time onboarding
     private void handleLoginRedirect() {
-        boolean done = getSharedPreferences("prefs", MODE_PRIVATE).getBoolean("onboardingComplete", false);
+        boolean done = getSharedPreferences("prefs", MODE_PRIVATE)
+                .getBoolean("onboardingComplete", false);
 
         if (done) {
-            goToMain();
-        } else {
             goToFirstLogin();
+        } else {
+            goToMain();
         }
     }
 
-    //Sends user to first time onboarding
     private void goToFirstLogin() {
         Intent intent = new Intent(LoginActivity.this, FirstLoginActivity.class);
         startActivity(intent);
         finish();
     }
 
-    //Sends user to home page
     private void goToMain() {
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
