@@ -18,10 +18,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
         replaceFragment(new HomeFragment());
 
+        //Populates icons at bottom of nav
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
-
             int itemId = item.getItemId();
             if (itemId == R.id.home) {
                 replaceFragment(new HomeFragment());
@@ -32,8 +33,6 @@ public class MainActivity extends AppCompatActivity {
             } else if (itemId == R.id.settings) {
                 replaceFragment(new SettingsFragment());
             }
-
-
             return true;
         });
     }

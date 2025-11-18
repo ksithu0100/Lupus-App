@@ -17,6 +17,24 @@ import androidx.core.app.NotificationManagerCompat;
 import java.util.Calendar;
 
 public class NotificationReceiver extends BroadcastReceiver {
+    //THIS SCREEN IS UNUSED RIGHT NOW
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     private static final String CHANNEL_ID = "lupus_notifications";
 
@@ -28,12 +46,7 @@ public class NotificationReceiver extends BroadcastReceiver {
         Intent openIntent = new Intent(context, LoginActivity.class);
         openIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
-        PendingIntent contentIntent = PendingIntent.getActivity(
-                context,
-                0,
-                openIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
-        );
+        PendingIntent contentIntent = PendingIntent.getActivity(context, 0, openIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
         // Build & show the test notification
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)

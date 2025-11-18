@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class FirstLoginActivity extends AppCompatActivity {
 
+    //Checkboxes for preferences, first line is the "What do you want to use this app for", second is the symptoms they wanna track, third is the submit button
     CheckBox trackSymptoms, connectDoctors, learnLupus, other;
     CheckBox symptom1, symptom2, symptom3, symptom4, symptom5, symptom6, symptom7;
     Button submit;
@@ -29,15 +30,12 @@ public class FirstLoginActivity extends AppCompatActivity {
         symptom1 = findViewById(R.id.symptom1);
         symptom2 = findViewById(R.id.symptom2);
         symptom3 = findViewById(R.id.symptom3);
-        symptom4 = findViewById(R.id.symptom4);
-        symptom5 = findViewById(R.id.symptom5);
-        symptom6 = findViewById(R.id.symptom6);
-        symptom7 = findViewById(R.id.symptom7);
 
         submit = findViewById(R.id.submit);
 
         symptomList = new CheckBox[]{symptom1, symptom2, symptom3, symptom4};
 
+        //Logic to cap selection of symptoms at 5
         for (CheckBox cb : symptomList) {
             cb.setOnCheckedChangeListener((buttonView, isChecked) -> {
                 if (isChecked && getSelectedCount() > 5) {
@@ -75,6 +73,7 @@ public class FirstLoginActivity extends AppCompatActivity {
         editor.putBoolean("symptom2", symptom2.isChecked());
         editor.putBoolean("symptom3", symptom3.isChecked());
         editor.putBoolean("symptom4", symptom4.isChecked());
+        //need to add the rest here eventually...
 
         editor.apply();
     }
