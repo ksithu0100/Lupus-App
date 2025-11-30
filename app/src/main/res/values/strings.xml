@@ -20,7 +20,11 @@
     <string name="resource_group_2">Resource Group 2</string>
     <string name="Submit">Submit</string>
     <string name="first_login">First Login</string>
-    <string name="symptom_5" />
-    <string name="symptom_6" />
-    <string name="symptom_7" />
+    <string name="symptom_5">Something something</string>
+    <string name="symptom_6">Something something</string>
+    <string name="symptom_7">Something something</string>
+    <string name="general_pain">General Pain</string>
+    <string name="skin">Skin</string>
+    <string name="mood">Mood</string>
+    <string name="memory">Memory</string>
 </resources>

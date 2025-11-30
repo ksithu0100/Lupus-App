@@ -63,10 +63,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void handleLoginRedirect() {
-        boolean done = getSharedPreferences("prefs", MODE_PRIVATE)
-                .getBoolean("onboardingComplete", false);
-
-        if (done) {
+        boolean onboardingDone = PreferencesManager.isOnboardingComplete(this);
+        if (!onboardingDone) {
             goToFirstLogin();
         } else {
             goToMain();

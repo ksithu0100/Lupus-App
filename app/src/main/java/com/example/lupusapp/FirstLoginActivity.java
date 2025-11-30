@@ -26,14 +26,15 @@ public class FirstLoginActivity extends AppCompatActivity {
         connectDoctors = findViewById(R.id.checkbox_connect_doctors);
         learnLupus = findViewById(R.id.checkbox_learn_lupus);
         other = findViewById(R.id.checkbox_other);
-
         symptom1 = findViewById(R.id.symptom1);
         symptom2 = findViewById(R.id.symptom2);
         symptom3 = findViewById(R.id.symptom3);
-
+        symptom4 = findViewById(R.id.symptom4);
+        symptom5 = findViewById(R.id.symptom5);
+        symptom6 = findViewById(R.id.symptom6);
+        symptom7 = findViewById(R.id.symptom7);
         submit = findViewById(R.id.submit);
-
-        symptomList = new CheckBox[]{symptom1, symptom2, symptom3, symptom4};
+        symptomList = new CheckBox[]{symptom1, symptom2, symptom3, symptom4, symptom5, symptom6, symptom7};
 
         //Logic to cap selection of symptoms at 5
         for (CheckBox cb : symptomList) {
@@ -46,14 +47,8 @@ public class FirstLoginActivity extends AppCompatActivity {
         }
 
         submit.setOnClickListener(v -> {
-
-            getSharedPreferences("prefs", MODE_PRIVATE)
-                    .edit()
-                    .putBoolean("onboardingComplete", true)
-                    .apply();
-
+            PreferencesManager.setOnboardingComplete(this, true);
             saveSymptoms();
-
             goToMain();
         });
     }
@@ -67,15 +62,7 @@ public class FirstLoginActivity extends AppCompatActivity {
     }
 
     private void saveSymptoms() {
-        var editor = getSharedPreferences("prefs", MODE_PRIVATE).edit();
-
-        editor.putBoolean("symptom1", symptom1.isChecked());
-        editor.putBoolean("symptom2", symptom2.isChecked());
-        editor.putBoolean("symptom3", symptom3.isChecked());
-        editor.putBoolean("symptom4", symptom4.isChecked());
-        //need to add the rest here eventually...
-
-        editor.apply();
+        PreferencesManager.saveSymptoms(this, symptom1.isChecked(), symptom2.isChecked(), symptom3.isChecked(), symptom4.isChecked(), symptom5.isChecked(), symptom6.isChecked(), symptom7.isChecked());
     }
 
     private void goToMain() {

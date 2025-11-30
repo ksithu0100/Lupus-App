@@ -85,7 +85,7 @@
             android:id="@+id/symptom1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/symptom_1"
+            android:text="@string/general_pain"
             android:padding="12dp"
             android:textSize="16sp"
             android:layout_marginBottom="8dp" />
@@ -94,7 +94,7 @@
             android:id="@+id/symptom2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/symptom_2"
+            android:text="@string/mood"
             android:padding="12dp"
             android:textSize="16sp"
             android:layout_marginBottom="8dp" />
@@ -103,11 +103,46 @@
             android:id="@+id/symptom3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/symptom_3"
+            android:text="@string/skin"
             android:padding="12dp"
             android:textSize="16sp"
             android:layout_marginBottom="8dp" />
 
+        <CheckBox
+            android:id="@+id/symptom4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/memory"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <CheckBox
+            android:id="@+id/symptom5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/symptom_5"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <CheckBox
+            android:id="@+id/symptom6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/symptom_6"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <CheckBox
+            android:id="@+id/symptom7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/symptom_7"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
         <Button
             android:id="@+id/submit"
             android:layout_width="match_parent"
