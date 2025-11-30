@@ -38,9 +38,7 @@ public class RegisterActivity extends AppCompatActivity {
                         Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                         startActivity(intent);
                     })
-
-                    .addOnFailureListener(e ->
-                            Toast.makeText(this, "Failed: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+                    .addOnFailureListener(e -> Toast.makeText(this, "Failed: " + e.getMessage(), Toast.LENGTH_SHORT).show());
         });
     }
 }

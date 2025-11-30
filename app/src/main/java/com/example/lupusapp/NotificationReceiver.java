@@ -17,23 +17,7 @@ import androidx.core.app.NotificationManagerCompat;
 import java.util.Calendar;
 
 public class NotificationReceiver extends BroadcastReceiver {
-    //THIS SCREEN IS UNUSED RIGHT NOW
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    //THIS LOGIC IS UNUSED RIGHT NOW
 
 
     private static final String CHANNEL_ID = "lupus_notifications";

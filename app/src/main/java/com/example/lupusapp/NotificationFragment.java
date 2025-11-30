@@ -28,26 +28,6 @@ public class NotificationFragment extends Activity {
 
     //THIS SCREEN IS UNBINDED RIGHT NOW, YOU CANNOT ACCESS IT CURRENTLY
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     private static final String CHANNEL_ID = "lupus_notifications";
 
     private Switch switchNotifications;

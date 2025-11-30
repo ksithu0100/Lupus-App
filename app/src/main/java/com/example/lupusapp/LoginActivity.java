@@ -29,7 +29,6 @@ public class LoginActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         loginButton = findViewById(R.id.loginButton);
         registerButton = findViewById(R.id.registerButton);
-
         auth = FirebaseAuth.getInstance();
 
         FirebaseUser currentUser = auth.getCurrentUser();
@@ -51,14 +50,11 @@ public class LoginActivity extends AppCompatActivity {
                 return;
             }
 
-            auth.signInWithEmailAndPassword(email, pass)
-                    .addOnSuccessListener(authResult -> {
-                        Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                        handleLoginRedirect();
-                    })
-                    .addOnFailureListener(e ->
-                            Toast.makeText(LoginActivity.this, "Login Failed: " + e.getMessage(), Toast.LENGTH_SHORT).show()
-                    );
+            auth.signInWithEmailAndPassword(email, pass).addOnSuccessListener(authResult -> {
+                Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                handleLoginRedirect();
+            }).addOnFailureListener(e -> Toast.makeText(LoginActivity.this, "Login Failed: " + e.getMessage(), Toast.LENGTH_SHORT).show()
+            );
         });
     }
 
