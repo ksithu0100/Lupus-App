@@ -26,7 +26,7 @@
                 android:layout_height="141dp"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center"
-                android:text="What symptom would you like to log?"
+                android:text="How are you feeling today symptom-wise?"
                 android:textSize="25sp" />
 
             <FrameLayout
@@ -60,7 +60,7 @@
                         android:layout_gravity="center"
                         android:layout_marginBottom="16dp"
                         android:gravity="center"
-                        android:text="Scale Value: 1"
+                        android:text="Symptom Severity: 1"
                         android:textSize="18sp" />
 
                     <SeekBar
@@ -111,7 +111,7 @@
                         android:layout_gravity="center"
                         android:layout_marginBottom="16dp"
                         android:gravity="center"
-                        android:text="Scale Value: 1"
+                        android:text="Symptom Severity: 1"
                         android:textSize="18sp" />
 
                     <SeekBar
@@ -162,7 +162,7 @@
                         android:layout_gravity="center"
                         android:layout_marginBottom="16dp"
                         android:gravity="center"
-                        android:text="Scale Value: 1"
+                        android:text="Symptom Severity: 1"
                         android:textSize="18sp" />
 
                     <SeekBar
@@ -213,7 +213,7 @@
                         android:layout_gravity="center"
                         android:layout_marginBottom="16dp"
                         android:gravity="center"
-                        android:text="Scale Value: 1"
+                        android:text="Symptom Severity: 1"
                         android:textSize="18sp" />
 
                     <SeekBar
@@ -264,7 +264,7 @@
                         android:layout_gravity="center"
                         android:layout_marginBottom="16dp"
                         android:gravity="center"
-                        android:text="Scale Value: 1"
+                        android:text="Symptom Severity: 1"
                         android:textSize="18sp" />
 
                     <SeekBar
@@ -315,7 +315,7 @@
                         android:layout_gravity="center"
                         android:layout_marginBottom="16dp"
                         android:gravity="center"
-                        android:text="Scale Value: 1"
+                        android:text="Symptom Severity: 1"
                         android:textSize="18sp" />
 
                     <SeekBar
@@ -366,7 +366,7 @@
                         android:layout_gravity="center"
                         android:layout_marginBottom="16dp"
                         android:gravity="center"
-                        android:text="Scale Value: 1"
+                        android:text="Symptom Severity: 1"
                         android:textSize="18sp" />
 
                     <SeekBar
