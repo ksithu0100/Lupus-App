@@ -43,9 +43,13 @@ public class CalenderFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         binding = FragmentCalenderBinding.inflate(inflater, container, false);
+        outputText = binding.symptomInput;
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            highlightedDates.add(LocalDate.of(2025, 12, 2));
+        DatabaseHelper dbHelper = new DatabaseHelper(requireContext());
+        for (String d : dbHelper.getAllLoggedDates()) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                highlightedDates.add(LocalDate.parse(d));
+            }
         }
 
         setupCalendar();
@@ -94,7 +98,6 @@ public class CalenderFragment extends Fragment {
             public void bind(@NonNull DayViewContainer container, CalendarDay day) {
                 container.day = day;
                 TextView textView = container.textView;
-                EditText outputText = binding.symptomInput;
                 LocalDate date = day.getDate();
 
                 // Set text
@@ -116,8 +119,6 @@ public class CalenderFragment extends Fragment {
                                 requireContext().getDrawable(R.drawable.circle_blue)
                         );
                         textView.setTextColor(Color.WHITE);
-                        outputText.setText("dotdotdot");
-
                     }
 
                     // CASE 2: LOGGED (orange square)
@@ -163,7 +164,6 @@ public class CalenderFragment extends Fragment {
     class DayViewContainer extends ViewContainer {
         TextView textView;
         CalendarDay day;
-
         DayViewContainer(View view) {
             super(view);
             textView = view.findViewById(R.id.exOneDayText);
@@ -172,6 +172,17 @@ public class CalenderFragment extends Fragment {
                 if (day != null && day.getPosition() == DayPosition.MonthDate) {
                     selectedDate = day.getDate();
                     binding.editTextDate.setText(selectedDate.toString());
+
+                    DatabaseHelper dbHelper = new DatabaseHelper(requireContext());
+                    String summary = dbHelper.getLogSummary(requireContext(), selectedDate.toString());
+
+                    if (summary != null) {
+                        outputText.setText(summary);
+                        highlightedDates.add(selectedDate);
+                    } else {
+                        outputText.setText("No log for this day.");
+                    }
+
                     binding.calendarView.notifyCalendarChanged();
                 }
             });
