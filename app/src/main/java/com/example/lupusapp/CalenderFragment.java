@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -31,6 +32,7 @@ public class CalenderFragment extends Fragment {
     private FragmentCalenderBinding binding;
     private final Set<LocalDate> highlightedDates = new HashSet<>();
     private YearMonth currentMonth;
+    private EditText outputText;
 
     private final DateTimeFormatter monthFormatter =
             DateTimeFormatter.ofPattern("MMMM yyyy");
@@ -43,9 +45,7 @@ public class CalenderFragment extends Fragment {
         binding = FragmentCalenderBinding.inflate(inflater, container, false);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            highlightedDates.add(LocalDate.of(2025, 12, 26));
             highlightedDates.add(LocalDate.of(2025, 12, 2));
-            highlightedDates.add(LocalDate.of(2025, 10, 15));
         }
 
         setupCalendar();
@@ -94,7 +94,7 @@ public class CalenderFragment extends Fragment {
             public void bind(@NonNull DayViewContainer container, CalendarDay day) {
                 container.day = day;
                 TextView textView = container.textView;
-
+                EditText outputText = binding.symptomInput;
                 LocalDate date = day.getDate();
 
                 // Set text
@@ -116,6 +116,8 @@ public class CalenderFragment extends Fragment {
                                 requireContext().getDrawable(R.drawable.circle_blue)
                         );
                         textView.setTextColor(Color.WHITE);
+                        outputText.setText("dotdotdot");
+
                     }
 
                     // CASE 2: LOGGED (orange square)
@@ -132,8 +134,9 @@ public class CalenderFragment extends Fragment {
                                 requireContext().getDrawable(R.drawable.circle_blue)
                         );
                         textView.setTextColor(Color.WHITE);
-                    }
 
+                        outputText.setText("No log for this day.");
+                    }
                 } else {
                     textView.setVisibility(View.INVISIBLE);
                 }

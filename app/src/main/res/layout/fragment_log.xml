@@ -22,7 +22,7 @@
                 android:layout_height="119dp"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center"
-                android:text="How are you feeling today symptom-wise?"
+                android:text="How are you feeling today?"
                 android:textSize="25sp" />
 
             <Button
@@ -37,7 +37,8 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:id="@+id/frameLayout1">
 
                 <TextView
                     android:id="@+id/textView2"
@@ -88,7 +89,8 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:id="@+id/frameLayout2">
 
                 <TextView
                     android:id="@+id/textView3"
@@ -139,7 +141,8 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:id="@+id/frameLayout3">
 
                 <TextView
                     android:id="@+id/textView4"
@@ -190,7 +193,8 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:id="@+id/frameLayout4">
 
                 <TextView
                     android:id="@+id/textView5"
@@ -241,7 +245,8 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:id="@+id/frameLayout5">
 
                 <TextView
                     android:id="@+id/textView6"
@@ -292,7 +297,8 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:id="@+id/frameLayout6">
 
                 <TextView
                     android:id="@+id/textView7"
@@ -343,7 +349,8 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:id="@+id/frameLayout7">
 
                 <TextView
                     android:id="@+id/textView8"

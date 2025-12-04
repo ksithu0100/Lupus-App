@@ -1,6 +1,8 @@
 package com.example.lupusapp;
 
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -32,6 +34,40 @@ public class LogFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_log, container, false);
 
         dbHelper = new DatabaseHelper(getContext());
+
+        FrameLayout linLay1 = view.findViewById(R.id.frameLayout1);
+        FrameLayout linLay2 = view.findViewById(R.id.frameLayout2);
+        FrameLayout linLay3 = view.findViewById(R.id.frameLayout3);
+        FrameLayout linLay4 = view.findViewById(R.id.frameLayout4);
+        FrameLayout linLay5 = view.findViewById(R.id.frameLayout5);
+        FrameLayout linLay6 = view.findViewById(R.id.frameLayout6);
+        FrameLayout linLay7 = view.findViewById(R.id.frameLayout7);
+
+        linLay1.setVisibility(
+                PreferencesManager.getSymptom1(requireContext()) ? View.VISIBLE : View.GONE
+        );
+
+        linLay2.setVisibility(
+                PreferencesManager.getSymptom2(requireContext()) ? View.VISIBLE : View.GONE
+        );
+
+        linLay3.setVisibility(
+                PreferencesManager.getSymptom3(requireContext()) ? View.VISIBLE : View.GONE
+        );
+        linLay4.setVisibility(
+                PreferencesManager.getSymptom4(requireContext()) ? View.VISIBLE : View.GONE
+        );
+
+        linLay5.setVisibility(
+                PreferencesManager.getSymptom5(requireContext()) ? View.VISIBLE : View.GONE
+        );
+
+        linLay6.setVisibility(
+                PreferencesManager.getSymptom6(requireContext()) ? View.VISIBLE : View.GONE
+        );
+        linLay7.setVisibility(
+                PreferencesManager.getSymptom7(requireContext()) ? View.VISIBLE : View.GONE
+        );
 
         int[] seekBarIds = {
                 R.id.scale_seek_bar2,
