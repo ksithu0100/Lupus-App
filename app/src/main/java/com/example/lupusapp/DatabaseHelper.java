@@ -43,22 +43,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      * Insert one symptom entry.
      * If rating is null, the column becomes NULL in the database.
      */
-    public boolean insertSymptom(String date, String symptomName, Integer rating) {
+    public boolean insertSymptomRatings(int s1, int s2, int s3, int s4, int s5, int s6, int s7) {
         SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues cv = new ContentValues();
-
-        cv.put(COL_DATE, date);
-        cv.put(COL_SYMPTOM_NAME, symptomName);
-
-        if (rating != null) {
-            cv.put(COL_RATING, rating);
-        } else {
-            cv.putNull(COL_RATING);
-        }
-
-        long result = db.insert(TABLE_NAME, null, cv);
-        db.close();
-
-        return result != -1;
+        ContentValues values = new ContentValues();
+        values.put("symptom 1", s1);
+        values.put("symptom 2", s2);
+        values.put("symptom 3", s3);
+        values.put("symptom 4", s4);
+        values.put("symptom 5", s5);
+        values.put("symptom 6", s6);
+        values.put("symptom 7", s7);
+        long result = db.insert("symptom_log", null, values);
+        return result != -1; // true if insert succeeded
     }
+
 }

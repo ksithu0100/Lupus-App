@@ -16,18 +16,24 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20dp" />
-
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="411dp"
-                android:layout_height="141dp"
+                android:layout_height="119dp"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center"
                 android:text="How are you feeling today symptom-wise?"
                 android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Submit Symptoms" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
 
             <FrameLayout
                 android:layout_width="match_parent"

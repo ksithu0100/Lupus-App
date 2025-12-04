@@ -1,5 +1,7 @@
 package com.example.lupusapp;
 
+import android.widget.Button;
+import android.widget.Toast;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +17,7 @@ public class LogFragment extends Fragment {
 
     private SeekBar[] seekBars = new SeekBar[7];
     private TextView[] valueTextViews = new TextView[7];
+    private DatabaseHelper dbHelper;
 
     public LogFragment() {
         // Required empty public constructor
@@ -27,6 +30,8 @@ public class LogFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_log, container, false);
+
+        dbHelper = new DatabaseHelper(getContext());
 
         int[] seekBarIds = {
                 R.id.scale_seek_bar2,
@@ -61,13 +66,35 @@ public class LogFragment extends Fragment {
                     valueTextViews[index].setText("Symptom Severity: " + actualValue);
                 }
 
+                // pretty much here if we want to add anything for the bars
                 @Override
                 public void onStartTrackingTouch(SeekBar seekBar) {}
-
                 @Override
                 public void onStopTrackingTouch(SeekBar seekBar) {}
             });
         }
+
+        // Handle the submit button
+        Button submitButton = view.findViewById(R.id.button);
+        submitButton.setOnClickListener(v -> {
+            int[] ratings = new int[7];
+            for (int i = 0; i < 7; i++) {
+                ratings[i] = Math.max(1, seekBars[i].getProgress()); // ensure minimum 1
+            }
+
+            // Insert ratings into the database
+            boolean success = dbHelper.insertSymptomRatings(
+                    ratings[0], ratings[1], ratings[2],
+                    ratings[3], ratings[4], ratings[5],
+                    ratings[6]
+            );
+
+            if (success) {
+                Toast.makeText(getContext(), "Symptoms submitted!", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getContext(), "Error submitting symptoms.", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         return view;
     }
