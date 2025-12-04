@@ -64,19 +64,6 @@ public class SettingsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        View root = inflater.inflate(R.layout.fragment_settings, container, false);
-        TextView signOutButton = root.findViewById(R.id.signOut);
-
-        signOutButton.setOnClickListener(v -> {
-            FirebaseAuth.getInstance().signOut();
-
-            // Go back to login screen
-            Intent intent = new Intent(getActivity(), LoginActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
-        });
-
-        return root;
+        return inflater.inflate(R.layout.fragment_settings, container, false);
     }
 }
